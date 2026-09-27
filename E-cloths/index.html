@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Virtual Stylist & Try-On</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">👗 <span>StyleAI</span></div>
+    <p class="tagline">Personalized Outfits for Every Occasion</p>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- Left Column: Controls & Upload -->
+    <section class="card controls-panel">
+      <h2>1. Apni Photo Upload Karein</h2>
+      <div class="upload-box" id="dropArea">
+        <input type="file" id="imageInput" accept="image/*" hidden />
+        <div class="upload-content" id="uploadPlaceholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          <p><strong>Click to browse</strong> ya photo yahan drop karein</p>
+          <span>PNG, JPG up to 10MB</span>
+        </div>
+        <img id="previewImage" class="preview-img hidden" alt="Uploaded Preview" />
+      </div>
+
+      <h2>2. Occasion / Season Select Karein</h2>
+      <div class="category-grid">
+        <label class="category-card">
+          <input type="radio" name="occasion" value="shaadi" checked />
+          <div class="card-content">
+            <span class="icon">💍</span>
+            <span class="label">Shaadi / Wedding</span>
+          </div>
+        </label>
+
+        <label class="category-card">
+          <input type="radio" name="occasion" value="party" />
+          <div class="card-content">
+            <span class="icon">🎉</span>
+            <span class="label">Party / Club</span>
+          </div>
+        </label>
+
+        <label class="category-card">
+          <input type="radio" name="occasion" value="winter" />
+          <div class="card-content">
+            <span class="icon">❄️</span>
+            <span class="label">Winter Look</span>
+          </div>
+        </label>
+
+        <label class="category-card">
+          <input type="radio" name="occasion" value="summer" />
+          <div class="card-content">
+            <span class="icon">☀️</span>
+            <span class="label">Summer Casual</span>
+          </div>
+        </label>
+      </div>
+
+      <!-- <h2>3. Style Preference</h2>
+      <div class="style-row">
+        <select id="genderSelect" class="dropdown">
+          <option value="men">Men's Fashion</option>
+          <option value="women">Women's Fashion</option>
+        </select>
+      </div> -->
+
+
+<h2>3. Kis Style ke Kapde Chahiye?</h2>
+<div class="gender-selector">
+  <label class="gender-option">
+    <input type="radio" name="gender" value="men" checked />
+    <span>👨 Men (Men)</span>
+  </label>
+  <label class="gender-option">
+    <input type="radio" name="gender" value="women" />
+    <span>👩 Women (Women)</span>
+  </label>
+</div>
+
+      <button id="generateBtn" class="btn-primary" disabled>
+        ✨ Generate My Look
+      </button>
+    </section>
+
+    <!-- Right Column: Result Output -->
+    <section class="card result-panel">
+      <h2>Aapka New Look</h2>
+      <div class="result-display" id="resultContainer">
+        
+        <div class="placeholder-state" id="emptyState">
+          <p>Photo upload karein aur occasion choose karke generate par click karein.</p>
+        </div>
+
+        <div class="loading-state hidden" id="loadingState">
+          <div class="spinner"></div>
+          <p id="loadingText">AI kapde select aur fit kar raha hai...</p>
+        </div>
+
+        <div class="result-image-wrapper hidden" id="resultView">
+          <img id="resultImage" alt="Generated AI Outfit" />
+          <div class="outfit-details">
+            <h3 id="resultTitle">Royal Wedding Sherwani</h3>
+            <p id="resultDesc">Custom tailored preview based on your choice.</p>
+            <button class="btn-secondary" id="downloadBtn">Download Image</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
